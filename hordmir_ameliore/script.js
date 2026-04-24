@@ -212,7 +212,7 @@ function initMobileMenu() {
   toggle.addEventListener('click', () => {
     toggle.classList.toggle('active');
     nav.classList.toggle('active');
-    document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+    // document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
   });
 
   navLinks.forEach(link => {
