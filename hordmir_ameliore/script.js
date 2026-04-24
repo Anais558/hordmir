@@ -13,11 +13,7 @@ const $ = (sel) => document.querySelector(sel);
 const escapeHtml = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-function stockBadgeClass(stock) {
-  if (stock === "En stock") return "badge badge-stock";
-  if (stock === "Stock limité") return "badge badge-limited";
-  return "badge badge-order";
-}
+
 
 // ============= WhatsApp links =============
 function bindWhatsApp() {
@@ -35,8 +31,6 @@ function renderNewArrivals() {
   if (!grid) return;
 
   grid.innerHTML = NEW_ARRIVALS.slice(0, 8).map(p => {
-    const link = waLink(waProduct(p.brand, p.name, p.reference));
-    const stockClass = p.stock === 'En stock' ? 'badge-stock' : p.stock === 'Limité' ? 'badge-limited' : 'badge-order';
     return `
       <tr>
         <td class="cell-ref">${escapeHtml(p.reference)}</td>
@@ -45,10 +39,6 @@ function renderNewArrivals() {
         <td class="hide-sm cell-muted">${escapeHtml(p.family)}</td>
         <td class="hide-md cell-muted">${escapeHtml(p.gender)}</td>
         <td class="hide-md cell-muted">${escapeHtml(p.size)}</td>
-        <td><span class="badge ${stockClass}">${escapeHtml(p.stock)}</span></td>
-        <td style="text-align:right;">
-          <a class="btn-quote" href="${link}" target="_blank" rel="noopener noreferrer">Devis →</a>
-        </td>
       </tr>`;
   }).join("");
 }
@@ -102,11 +92,10 @@ function renderCatalogue() {
   if (!tbody) return;
 
   if (items.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="8" class="empty">Aucun parfum ne correspond à votre recherche.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="6" class="empty">Aucun parfum ne correspond à votre recherche.</td></tr>`;
   } else {
     tbody.innerHTML = items
       .map((p) => {
-        const link = waLink(waProduct(p.brand, p.name, p.reference));
         return `
         <tr>
           <td class="cell-ref">${escapeHtml(p.reference)}</td>
@@ -115,8 +104,6 @@ function renderCatalogue() {
           <td class="cell-muted hide-sm">${escapeHtml(p.family)}</td>
           <td class="cell-muted hide-md">${escapeHtml(p.gender)}</td>
           <td class="cell-muted hide-md">${escapeHtml(p.size)}</td>
-          <td><span class="${stockBadgeClass(p.stock)}">${escapeHtml(p.stock)}</span></td>
-          <td style="text-align:right;"><a class="btn-quote" href="${link}" target="_blank" rel="noopener noreferrer">Devis</a></td>
         </tr>`;
       })
       .join("");
