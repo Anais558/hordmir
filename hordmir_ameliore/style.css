@@ -810,10 +810,12 @@ tbody tr:hover {
 
 .maps-button-wrap {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* 🔥 change ici */
   justify-content: center;
-  min-height: 350px;
+  min-height: 250px; /* 🔥 réduit l’espace */
+  padding-top: 1rem; /* petit ajustement propre */
 }
+
 
 @media (min-width: 768px) {
   .maps-button-wrap { min-height: 450px; }
@@ -822,18 +824,24 @@ tbody tr:hover {
 .btn-maps {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.5rem 2.5rem;
+  gap: 0.6rem;
+
+  padding: 0.85rem 1.6rem; /* 🔥 moins épais */
+  
   background: var(--gold);
   color: var(--black);
-  border-radius: 1rem;
-  font-size: 1rem;
+
+  border-radius: 999px; /* 🔥 style premium pill */
+
+  font-size: 0.8rem; /* 🔥 plus discret */
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.5);
+
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 25px -8px rgba(212, 175, 55, 0.5);
 }
+
 
 .btn-maps:hover {
   background: var(--gold-light);
@@ -842,10 +850,10 @@ tbody tr:hover {
 }
 
 .btn-maps svg {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
 }
+
 
 /* ========== Floating WhatsApp & Footer ========== */
 .fab {
