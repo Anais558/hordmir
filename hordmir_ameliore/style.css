@@ -494,23 +494,8 @@ h3, h4 { font-family: var(--font-serif); font-weight: 500; line-height: 1.15; }
 }
 
 #new-arrivals-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
   position: relative;
   z-index: 1;
-}
-
-@media (min-width: 540px) {
-  #new-arrivals-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  #new-arrivals-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 .parfum-card {
@@ -729,32 +714,7 @@ tbody tr:hover {
 .cell-brand { color: var(--gold); font-weight: 600; }
 .cell-name { font-family: var(--font-serif); font-size: 1.05rem; }
 
-.badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.65rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  border: 1px solid;
-}
 
-.badge-stock { background: rgba(16, 185, 129, 0.1); color: #10b981; border-color: rgba(16, 185, 129, 0.3); }
-.badge-limited { background: rgba(245, 158, 11, 0.1); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3); }
-.badge-order { background: rgba(156, 163, 175, 0.1); color: #9ca3af; border-color: rgba(156, 163, 175, 0.3); }
-
-.btn-quote {
-  padding: 0.4rem 1rem;
-  background: var(--gold);
-  color: var(--black);
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  transition: opacity .2s;
-  white-space: nowrap;
-}
-
-.btn-quote:hover { opacity: 0.9; }
 
 /* Visibility helpers for table */
 .hide-sm { display: none; }
