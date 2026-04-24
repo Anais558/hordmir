@@ -332,7 +332,6 @@ h3, h4 { font-family: var(--font-serif); font-weight: 500; line-height: 1.15; }
   object-fit: contain;
   filter: drop-shadow(-20px 40px 80px rgba(0,0,0,0.6))
           drop-shadow(0 0 60px rgba(91,58,122,0.4));
-  animation: float-img 5s ease-in-out infinite;
   position: relative;
   z-index: 2;
 }
@@ -342,11 +341,6 @@ h3, h4 { font-family: var(--font-serif); font-weight: 500; line-height: 1.15; }
     width: 100%;
     max-width: 490px;
   }
-}
-
-@keyframes float-img {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
 }
 
 /* ========== Sections ========== */
